@@ -23,28 +23,34 @@
     </tr>
   </thead>
   <tbody>
-    <% @blogs.each do |blog| %>
+    <% if @blogs == [] %>
       <tr>
-        <td><%= blog.id %></td>
-        <td><%= blog.title %></td>
-        <td><%= blog.start_date.to_s(:datetime_jp) %></td>
-        <td><%= blog.end_date.to_s(:datetime_jp) %></td>
-        <td>
-          <% if blog.all_day == true %>
-            ◯
-          <% end %>
-        </td>
-        <td><%= blog.updated_at.to_s(:datetimes_jp) %></td>
-        <td>
-          <%= link_to "確認", blog_path(blog.id), class: "link_to" %>
-        </td>
-        <td>
-          <%= link_to "編集", edit_blog_path(blog.id), class: "link_to" %>
-        </td>
-        <td>
-          <%= link_to "削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link_to" %>
-        </td>
+        <td colspan="9">現在登録しているスケジュールはありません</td>
       </tr>
+    <% else %>    
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.id %></td>
+          <td><%= blog.title %></td>
+          <td><%= blog.start_date.to_s(:datetime_jp) %></td>
+          <td><%= blog.end_date.to_s(:datetime_jp) %></td>
+          <td>
+            <% if blog.all_day == true %>
+              ◯
+            <% end %>
+          </td>
+          <td><%= blog.updated_at.to_s(:datetimes_jp) %></td>
+          <td>
+            <%= link_to "確認", blog_path(blog.id), class: "link_to" %>
+          </td>
+          <td>
+            <%= link_to "編集", edit_blog_path(blog.id), class: "link_to" %>
+          </td>
+          <td>
+            <%= link_to "削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link_to" %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
