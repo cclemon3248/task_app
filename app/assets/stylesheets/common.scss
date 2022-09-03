@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #c52f24;
+}
+
+footer {
+  background-color: #c52f24;
+}
+
+main {
+  flex: 1;
+  padding: 30px 20px;
+}
+
+h1 {
+  margin: 30px 10px;
+  color: #ffffff;
+  min-width: 5vm;
+}
+
+table {
+  margin-bottom: 15px;
+  border: 1px #000000 solid;
+  border-collapse: collapse;
+}
+
+table th {
+  padding: 10px 20px;
+  background-color: #ffdfdf;
+  border: 1px #000000 solid;
+  border-collapse: collapse;
+}
+
+table td {
+  padding: 10px 20px;
+  text-align: center;
+  background-color: #f1c8c861;
+  border: 1px #000000 solid;
+  border-collapse: collapse;
+}
+
+.link_to {
+  text-decoration: none;
+}
+
+.submit {
+  padding: 5px;
+  font-size: 16px;
+}
+
+li {
+  list-style: none;
+}
+
+.error {
+  background-color: #ec98ac8f;
+  padding: 15px;
+  width: 400px;
+  text-align: center;
+  border: solid 2px #ec7592;
+}
+
+.notice {
+  background-color: #98ecaa7a;
+  padding: 15px;
+  width: 400px;
+  text-align: center;
+  border: solid 2px #5cd075;
+}
+
+.textarea {
+  width: 350px;
+  height: 200px;
+  font-size: 16px;
+}
+
+.textfield {
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+pre {
+  padding: 5px;
+  margin: 16px 10px;
+  font-size: 16px;
+}
