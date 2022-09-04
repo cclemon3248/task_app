@@ -1,0 +1,36 @@
+<h2>スケジュール詳細</h2>
+
+<table>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @blog.title %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @blog.start_date.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>投稿日時</th>
+    <td><%= @blog.created_at.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>終日</th>
+    <td>
+      <% if @blog.all_day == true %>
+        ◯
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>スケジュールメモ</th>
+    <td>
+      <pre><%= @blog.memo %></pre>
+    </td>
+  </tr>
+</table>
+
+<ul>
+  <li><%= link_to "スケジュール一覧に戻る", blogs_path, class: "link_to" %></li>
+  <li><%= link_to "スケジュールを編集する", edit_blog_path(@blog.id), class: "link_to" %></li>
+  <li><%= link_to "スケジュールを削除", blog_path(@blog.id), method: :delete, data: {confirm: "本当に削除しますか"}, class: "link_to" %></li>
+</ul>

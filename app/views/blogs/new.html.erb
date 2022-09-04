@@ -1,0 +1,41 @@
+<% unless @blog.errors.any? %>
+<h2>スケジュール新規作成</h2>
+<% end %>
+
+<%= render "shared/flash_error" %>
+
+<%= render "shared/error" %>
+
+<%= form_with model: @blog, local: true do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :title, "タイトル" %></th>
+      <td><%= f.text_field :title, class: "textfield" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :start_date, "開始日" %></th>
+      <td><%= f.date_field :start_date, class: "textfield" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :end_date, "終了日" %></th>
+      <td><%= f.date_field :end_date, class: "textfield" %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :all_day, "終日" %></th>
+      <td>
+      <%= f.check_box :all_day, {}, checked_value = true, unchecked_value = false %>
+        <br>
+        終日の場合はチェックを入れます
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :memo, "スケジュールメモ" %></th>
+      <td><%= f.text_area :memo, class: "textarea" %></td>
+    </tr>
+  </table>
+  <ul>
+  <li><%= f.submit "スケジュールを新規登録する", class: "submit" %></li>
+  <li><%= link_to "スケジュール一覧に戻る", blogs_path, class: "link_to" %></li>
+  </ul>
+  </div>
+<% end %>
