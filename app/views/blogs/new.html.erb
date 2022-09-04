@@ -2,9 +2,7 @@
 <h2>スケジュール新規作成</h2>
 <% end %>
 
-<% if flash[:error] %>
-  <p class="error"><%= flash[:error] %></p>
-<% end %>
+<%= render "shared/flash_error" %>
 
 <%= render "shared/error" %>
 

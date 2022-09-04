@@ -4,9 +4,7 @@
   <p class="notice"><%= flash[:notice] %></p>
 <% end %>
 
-<% if flash[:error] %>
-  <p class="error"><%= flash[:error] %></p>
-<% end %>
+<%= render "shared/flash_error" %>
 
 <table>
   <thead>
@@ -23,7 +21,7 @@
     </tr>
   </thead>
   <tbody>
-    <% if @blogs == [] %>
+    <% if @blogs.empty? %>
       <tr>
         <td colspan="9">現在登録しているスケジュールはありません</td>
       </tr>
@@ -35,9 +33,7 @@
           <td><%= blog.start_date.to_s(:datetime_jp) %></td>
           <td><%= blog.end_date.to_s(:datetime_jp) %></td>
           <td>
-            <% if blog.all_day == true %>
-              ◯
-            <% end %>
+            <%= blog.all_day ? "◯" : "" %>
           </td>
           <td><%= blog.updated_at.to_s(:datetimes_jp) %></td>
           <td>

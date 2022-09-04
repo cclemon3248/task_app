@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
 
   def create
     @blogs = Blog.all
-    @blog = Blog.new(params.require(:blog).permit(:title, :start_date, :end_date, :all_day, :memo))
+    @blog = Blog.new(blog_params)
     if @blog.save
       flash[:notice] = "スケジュールを登録しました"
       redirect_to blogs_path
@@ -33,7 +33,7 @@ class BlogsController < ApplicationController
   def update
     @blogs = Blog.all
     @blog = Blog.find(params[:id])
-    if @blog.update(params.require(:blog).permit(:title, :start_date, :end_date, :all_day, :memo))
+    if @blog.update(blog_params)
       flash[:notice] = "スケジュールを更新しました"
       redirect_to blogs_path
     else
@@ -48,5 +48,11 @@ class BlogsController < ApplicationController
     @blog.delete
     flash[:notice] = "スケジュールを削除しました"
     redirect_to blogs_path
+  end
+
+  private
+
+  def blog_params
+    params.require(:blog).permit(:title, :start_date, :end_date, :all_day, :memo)
   end
 end

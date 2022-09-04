@@ -2,9 +2,7 @@
 <h2>スケジュール編集</h2>
 <% end %>
 
-<% if flash[:error] %>
-  <p class="error"><%= flash[:error] %></p>
-<% end %>
+<%= render "shared/flash_error" %>
 
 <%= render "shared/error" %>
 
@@ -36,8 +34,7 @@
     </tr>
   </table>
   <ul>
-  <li><%= f.submit "スケジュール編集を完了する", class: "submit" %></li>
-  <li><%= link_to "スケジュール一覧に戻る", blogs_path, class: "link_to" %></li>
+    <li><%= f.submit "スケジュール編集を完了する", class: "submit" %></li>
+    <li><%= link_to "スケジュール一覧に戻る", blogs_path, class: "link_to" %></li>
   </ul>
-  </div>
 <% end %>
